@@ -77,6 +77,12 @@ $blue: #2ba1cf;
 }
 .link{
   margin-right: 2rem;
+  text-decoration: none;
+  color: $text-color;
+  font-weight: 600;
+  &:hover{
+    color: darken($color: $text-color, $amount: 90%);
+  }
 }
 .theme {
   width: 70px;

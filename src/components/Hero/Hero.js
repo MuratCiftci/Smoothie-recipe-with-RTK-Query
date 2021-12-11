@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Hero.module.scss";
-import cn from 'classnames'
+import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <div className={styles.heroContainer}>
@@ -9,9 +9,15 @@ const Hero = () => {
       </div>
       <div className={styles.heroDetails}>
         <h1 className={styles.heroTitle}>Simple and Tasty Juice Recipes</h1>
-        <button className={styles.heroButton}>View All Recipes</button>
+        <Link to="/recipes" className={styles.heroLink}>
+          <button className={styles.heroButton}>View All Recipes</button>
+        </Link>
         <h2 className={styles.heroTitle}>or</h2>
-        <button className={cn(styles.widerButton)}>Write Your Own Smoothie Recipes</button>
+        <Link to="/write" className={styles.heroLink}>
+          <button className={styles.widerButton}>
+            Write Your Own Smoothie Recipes
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Search from "../Search/Search";
 import styles from "./Navbar.module.scss";
 export const Navbar = () => {
@@ -6,7 +7,9 @@ export const Navbar = () => {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.leftNav}>
-          <img alt={"logo"} src={"/logo.png"}></img>
+          <Link to="/">
+            <img alt={"logo"} src={"/logo.png"}></img>
+          </Link>
         </div>
         <div className={styles.centerNav}>
           <div className={styles.searchContainer}>
@@ -14,14 +17,18 @@ export const Navbar = () => {
           </div>
         </div>
         <div className={styles.rightNav}>
-          <div className={styles.link}>Browse</div>
-          <div className={styles.link}>Write</div>
+        <Link to="/recipes" className={styles.link}>Browse</Link>
+        <Link to="/write" className={styles.link}>Write</Link>
           {dummyUser ? (
             "Profile"
           ) : (
             <div className={styles.buttonGroup}>
-              <button className={styles.login}>Login</button>
-              <button className={styles.sign}>Sign Up</button>
+              <Link to="/login">
+                <button className={styles.login}>Login</button>
+              </Link>
+              <Link to="/register">
+                <button className={styles.sign}>Sign Up</button>
+              </Link>
             </div>
           )}
           <div className={styles.theme}>*</div>

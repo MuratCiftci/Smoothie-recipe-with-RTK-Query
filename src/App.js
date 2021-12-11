@@ -1,17 +1,26 @@
-import React from 'react'
-import { Navbar } from './components/Navbar/Navbar'
-import { Routes, Route, Link } from "react-router-dom";
-import Hero from './components/Hero/Hero';
-import Recipes from './components/Recipes/Recipes';
+import React from "react";
+import { Navbar } from "./components/Navbar/Navbar";
+import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
 
-export  const App = () => {
+import Home from "./pages/Home/Home";
+import RecipeDetailPage from "./pages/RecipeDetailPage/RecipeDetailPage";
+import Recipes from "./pages/AllRecipes/Recipes";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
+import Write from "./pages/writeRecipe/Write";
+
+export const App = () => {
   return (
-    <div>
+    <BrowserRouter>
       <Navbar />
-      <Hero />
-      <Recipes title='Popular' />
-      <Recipes title='Latest' />
-    </div>
-  )
-}
-
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="details" element={<RecipeDetailPage />} />
+        <Route path="/recipes" element={<Recipes />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/write" element={<Write />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};

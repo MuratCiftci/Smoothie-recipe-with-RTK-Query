@@ -57,7 +57,10 @@ $background-color: linear-gradient(
   color: rgb(20, 18, 18);
   margin-bottom: 2rem;
 }
-
+.heroLink{
+  width: 100%;
+  text-align: center
+}
 .heroButton {
   @include Button;
 }
