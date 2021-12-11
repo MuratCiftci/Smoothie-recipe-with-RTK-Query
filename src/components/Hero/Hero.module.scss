@@ -1,0 +1,83 @@
+$light-blue: #d6e5e7;
+$light-red: #e43737;
+$background-color: linear-gradient(
+  90deg,
+  rgba(214, 229, 231, 1) 14%,
+  rgba(227, 237, 238, 1) 36%,
+  rgba(255, 255, 255, 1) 51%
+);
+
+@mixin Button(
+  $button-color: darken($color: $light-blue, $amount: 30%),
+  $color: lighten($color: $light-blue, $amount: 60%),
+
+) {
+  background: $button-color;
+  border: none;
+  color: $color;
+  height: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Lato", sans-serif;
+  margin-bottom: 1rem;
+  padding:0 1rem;
+  &:hover {
+    background: darken($color: $light-blue, $amount: 60%);
+    color: lighten($color: $light-blue, $amount: 80%);
+  }
+}
+
+.heroContainer {
+  height: 100vh;
+  color: white;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  background: $background-color;
+}
+.heroImage {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.heroDetails {
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 5rem;
+  justify-content: center;
+}
+.heroTitle {
+  font-size: 45px;
+  width: 300px;
+  text-align: center;
+  color: rgb(20, 18, 18);
+  margin-bottom: 2rem;
+}
+
+.heroButton {
+  @include Button;
+}
+
+.widerButton{
+  @include Button($button-color: $light-red);
+
+  &:hover {
+    background: darken($color: $light-red, $amount: 20%);
+    color: lighten($color: $light-blue, $amount: 80%);
+  }
+  
+}
+
+.lastRecipe {
+  display: flex;
+  flex-direction: column;
+
+  img {
+    height: 200px;
+    width: 200px;
+  }
+}

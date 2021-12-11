@@ -1,0 +1,44 @@
+
+.recipeWrapper {
+  max-width: 360px;
+  max-height: 352px;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-right: 3rem;
+}
+
+.recipeImage {
+  width: 360px;
+  height: 240px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+ margin-bottom: 1rem;
+}
+.postDetail{
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .postUser{
+        display: inline-flex;
+        align-items: center;
+        font-weight: 600;
+    }
+
+    .postDate{
+        color: #838080;
+    }
+   
+}
+
+
+.postText{
+    text-align: center;
+    margin-top: 0.7rem;
+    p{
+        font-size: 14px;
+      
+    }
+}

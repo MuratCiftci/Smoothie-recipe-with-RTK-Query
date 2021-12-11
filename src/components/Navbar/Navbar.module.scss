@@ -1,0 +1,104 @@
+$background-color: #ffffff;
+$text-color: #2d2d2d;
+$black: #000000;
+$red: #fe4a51;
+$blue: #2ba1cf;
+
+@mixin set-font($family: "Lato", $weight: 400, $style: normal) {
+  font-family: $family, sans-serif;
+  font-style: $style;
+  font-weight: $weight;
+}
+@mixin button($button-color: $blue) {
+  background-color: $button-color;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 30px;
+  width: 80px;
+  padding: 5px;
+  margin-right: 10px;
+  font-weight: 600;
+}
+.container {
+  @include set-font();
+  display: inline-flex;
+  flex-grow: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 80;
+  flex: 0;
+  margin-top: 0;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.wrapper {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: row;
+  background-color: $background-color;
+  flex-grow: 1;
+  padding: 0 20px;
+  height: 87px;
+  border-bottom: 1px solid #edeff1;
+  box-sizing: border-box;
+}
+
+.leftNav {
+  display: inline-flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+
+  img{
+    margin-left: 1rem;
+  }
+}
+
+.rightNav {
+  display: inline-flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: flex-end;
+}
+.centerNav{
+  display: inline-flex;
+  flex-grow: 1;
+  align-items: center;
+  margin-right: 1rem;
+}
+.searchContainer {
+  flex-grow: 1;
+  margin: 0 auto;
+  max-width: 690px;
+  width: 300px;
+}
+.link{
+  margin-right: 2rem;
+}
+.theme {
+  width: 70px;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.login {
+  @include button();
+
+  &:hover {
+    background-color: darken($blue, 5%);
+  }
+}
+
+.sign {
+  @include button($button-color: $red);
+
+  &:hover {
+    background-color: darken($red, 10%);
+  }
+}
+

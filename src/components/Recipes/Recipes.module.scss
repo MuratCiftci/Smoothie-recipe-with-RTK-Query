@@ -1,0 +1,29 @@
+$title-color : #0F1935;
+.recipeContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 0 2rem;
+}
+
+.containerTitle{
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: end;
+   font-size: 24px;
+   font-weight: 600;
+   margin: 1rem 2rem;
+   color: $title-color;
+   p{
+       margin: 0;
+       font-size: 16px;
+       color: lighten($color: $title-color, $amount: 20%);
+   }
+  
+}
+
+.recipeDetails{
+    display: inline-flex;
+    flex-grow: 1;
+    justify-content: center;
+}
