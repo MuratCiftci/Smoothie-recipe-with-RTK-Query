@@ -4,6 +4,8 @@ const bcrypt = require("bcrypt");
 const { validationResult } = require("express-validator");
 const { AccessTokenSecret  } = require("../config");
 
+
+
 exports.register = async (req, res) => {
   const result = validationResult(req);
   if (!result.isEmpty()) {
@@ -37,14 +39,18 @@ exports.login = async (req, res) => {
       return res.status(401).json("Wrong username or password");
     }
    
-    const token = jwt.sign(
-      { username: user.username },
-      AccessTokenSecret,
-    );
+    const access_token = generateAccessToken(user);
+  
     // eslint-disable-next-line no-unused-vars
     const { password, ...info } = user._doc;
-    res.status(200).json({ ...info, token });
+    res.status(200).json({ ...info, access_token});
   } catch (err) {
     res.status(500).json(err);
   }
 };
+
+const generateAccessToken = (user) => {
+  // const time = 1000 * 60 * 60;
+  // const s = time.toString();
+  return jwt.sign({username: user.username}, AccessTokenSecret);
+}
