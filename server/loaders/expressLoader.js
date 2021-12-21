@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const cors = require('cors');
 const multer = require("multer");
 const path = require("path");
-const routes = require("../routes");
+const routes = require("../../routes");
 
 module.exports = (app) => {
   // define any middlewares that need to run befoure our routes
