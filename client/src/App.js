@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar } from "./components/Navbar/Navbar";
-import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
+import { Routes, Route,  BrowserRouter } from "react-router-dom";
 
 import Home from "./pages/Home/Home";
 import RecipeDetailPage from "./pages/RecipeDetailPage/RecipeDetailPage";
@@ -15,8 +15,8 @@ export const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="details" element={<RecipeDetailPage />} />
         <Route path="/recipes" element={<Recipes />} />
+        <Route path="/recipes/:id" element={<RecipeDetailPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/write" element={<Write />} />
