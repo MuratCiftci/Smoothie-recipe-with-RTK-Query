@@ -1,10 +1,10 @@
 const express = require("express");
 const helmet = require("helmet");
 const morgan = require("morgan");
-const cors = require('cors');
+const cors = require("cors");
 const multer = require("multer");
 const path = require("path");
-const routes = require("../../routes");
+const routes = require("../routes/routes");
 
 module.exports = (app) => {
   // define any middlewares that need to run befoure our routes
@@ -13,7 +13,7 @@ module.exports = (app) => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
 
-  app.use(morgan('common'));
+  app.use(morgan("common"));
 
   //Uploading Images
   app.use("/images", express.static(path.join(__dirname, "/images")));
@@ -50,7 +50,7 @@ module.exports = (app) => {
     }
     return next(err);
   });
-  app.use((err, req, res, next) => {
+  app.use((err, req, res) => {
     res.status(err.status || 500);
     res.json({
       errors: {
