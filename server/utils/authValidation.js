@@ -1,40 +1,40 @@
 const { body } = require("express-validator");
 const User = require("../models/User");
 
-exports.validate = (method) => {
+exports.authValidate = (method) => {
   const errors = [
     body("username")
       .exists()
       .trim()
-      .withMessage("is required")
+      .withMessage("Username is required")
 
       .notEmpty()
-      .withMessage("cannot be blank")
+      .withMessage("Username cannot be blank")
 
       .isLength({ max: 32 })
-      .withMessage("must be at most 32 characters long")
+      .withMessage("Username must be at most 32 characters long")
 
       .custom((value) => value.trim() === value)
-      .withMessage("cannot start or end with whitespace")
+      .withMessage("Username cannot start or end with whitespace")
 
       .matches(/^[a-zA-Z0-9_-]+$/)
-      .withMessage("contains invalid characters"),
+      .withMessage("Username contains invalid characters"),
 
     body("password")
       .exists()
-      .withMessage("is required")
+      .withMessage("Password is required")
 
       .isLength({ min: 1 })
-      .withMessage("cannot be blank")
+      .withMessage("Password cannot be blank")
 
       .isLength({ min: 8 })
-      .withMessage("must be at least 8 characters long")
+      .withMessage("Password must be at least 8 characters long")
 
       .isLength({ max: 72 })
-      .withMessage("must be at most 72 characters long"),
+      .withMessage("Password must be at most 72 characters long"),
     body("email")
       .exists()
-      .withMessage("is required")
+      .withMessage("Email is required")
       .isEmail()
       .withMessage("Must be an email"),
   ];
@@ -51,6 +51,7 @@ exports.validate = (method) => {
       })
     );
   }
+ 
 
   return errors;
 };
