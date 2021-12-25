@@ -6,7 +6,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Lato', sans-serif;
-
 }
 
 code {
@@ -17,4 +16,7 @@ code {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+.content{
+  margin-top: 87px;
 }

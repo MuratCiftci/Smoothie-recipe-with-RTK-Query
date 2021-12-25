@@ -29,7 +29,7 @@ $background-color: linear-gradient(
 }
 
 .heroContainer {
-  height: 100vh;
+  height: calc(100vh - 87px);
   color: white;
   display: flex;
   position: relative;
