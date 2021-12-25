@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <div className={styles.heroContainer}>
       <div className={styles.heroImage}>
-        <img alt="hero" src={"./smoothie.png"}></img>
+        <img alt="hero" src={"./smoothie.webp"}></img>
       </div>
       <div className={styles.heroDetails}>
         <h1 className={styles.heroTitle}>Simple and Tasty Juice Recipes</h1>
