@@ -1,6 +1,12 @@
 const Recipe = require("../models/Recipe");
+const { validationResult } = require("express-validator");
 
 exports.createRecipe = async (req, res) => {
+  const result = validationResult(req);
+  if (!result.isEmpty()) {
+    const errors = result.array({ onlyFirstError: true });
+    return res.status(422).json({ errors });
+  }
   const newRecipe = new Recipe(req.body);
   try {
     const recipe = await newRecipe.save();
