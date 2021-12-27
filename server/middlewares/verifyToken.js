@@ -1,12 +1,12 @@
 const jwt = require("jsonwebtoken");
-const {jwtSecret} = require("../config")
+const {AccessTokenSecret} = require("../config")
 function verify(req, res, next) {
-  const authHeader = req.headers.token;
+  const authHeader = req.headers.authorization;
   if (authHeader) {
     const token = authHeader.split(" ")[1];
 
-    jwt.verify(token, jwtSecret, (err, user) => {
-      if (err) res.status(403).json("Token is not valid!");
+    jwt.verify(token, AccessTokenSecret, (err, user) => {
+      if (err) return res.status(403).json("Token is not valid!");
       req.user = user;
       next();
     });
