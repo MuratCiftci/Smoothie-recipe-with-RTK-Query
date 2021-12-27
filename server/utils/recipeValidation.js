@@ -30,16 +30,11 @@ exports.recipeValidate = () => {
 
       .isLength({ max: 800 })
       .withMessage("Description must be at most 800 characters long"),
-    body("ingredients")
+     body("ingredients")
       .exists()
       .withMessage("Ingredients is required")
       .isArray({max:15})
       .withMessage("I don't think blender can handle that much stuff. "),
-      
-      body("username")
-      .exists()
-      .trim()
-      .withMessage("Username is required")
 
   ];
 
