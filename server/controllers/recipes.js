@@ -7,19 +7,21 @@ exports.createRecipe = async (req, res) => {
     const errors = result.array({ onlyFirstError: true });
     return res.status(422).json({ errors });
   }
-  const newRecipe = new Recipe(req.body);
-  try {
-    const recipe = await newRecipe.save();
-    res.status(200).json(recipe);
-  } catch (err) {
-    res.status(500).json(err);
+  if (req.user.username === req.body.username) {
+    const newRecipe = new Recipe(req.body);
+    try {
+      const recipe = await newRecipe.save();
+      res.status(200).json(recipe);
+    } catch (err) {
+      res.status(500).json(err);
+    }
   }
 };
 
 exports.updateRecipe = async (req, res) => {
   try {
     const recipe = await Recipe.findById(req.params.id);
-    if (recipe.username === req.body.username) {
+    if (recipe.username === req.user.username) {
       try {
         const updatedRecipe = await Recipe.findByIdAndUpdate(
           req.params.id,
@@ -33,26 +35,50 @@ exports.updateRecipe = async (req, res) => {
         res.status(500).json(err);
       }
     } else {
-      res.status(401).json("You can update only your Recipe!");
+      res.status(401).json("You are not allowed to update this!");
     }
   } catch (err) {
     res.status(500).json(err);
   }
 };
 
+exports.delete = async (req, res) => {
+  try {
+    const recipe = await Recipe.findById(req.params.id);
+    if (req.user.username === recipe.usename) {
+      try {
+        await recipe.delete();
+        res.status(200).json("Recipe has been deleted");
+      } catch (err) {
+        res.status(500).json(err);
+      }
+    } else {
+      res.status(401).json("You are not allowed to delete this!");
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
 exports.loadRecipe = async (req, res) => {
   try {
-    const post = await Recipe.findById(req.params.id);
-    res.status(200).json(post);
+    const recipe = await Recipe.findById(req.params.id);
+    res.status(200).json(recipe);
   } catch (err) {
     res.status(500).json(err);
   }
 };
 
 exports.loadAllRecipes = async (req, res) => {
+  const search = req.query.search;
+
   try {
-    const recipes = await Recipe.find();
-    res.status(200).json(recipes);
+    let recipes;
+    if (search) {
+      recipes = await Recipe.find();
+    } else {
+      recipes = await Recipe.find();
+      res.status(200).json(recipes);
+    }
   } catch (err) {
     res.status(500).json(err);
   }

@@ -52,5 +52,5 @@ exports.login = async (req, res) => {
 const generateAccessToken = (user) => {
   // const time = 1000 * 60 * 60;
   // const s = time.toString();
-  return jwt.sign({username: user.username}, AccessTokenSecret);
+  return jwt.sign({id: user._id, username: user.username}, AccessTokenSecret, { expiresIn: "5d" });
 }
