@@ -9,9 +9,11 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Write from "./pages/writeRecipe/Write";
 
+import { useAuth } from "./hooks/useAuth";
+import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
+import UserRecipes from "./pages/UserRecipes/UserRecipes";
 
 export const App = () => {
-
   return (
     <BrowserRouter>
       <Navbar />
@@ -19,10 +21,11 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/recipes" element={<Recipes />} />
-        <Route path="/recipes/:id" element={<RecipeDetailPage />} />
+        <Route path="/recipe/:id" element={<RecipeDetailPage />} />
+        <Route path="/recipes/:user" element={<UserRecipes />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/write" element={<Write />} />
+        <Route path="/write" element={<PrivateRoute Component={Write} /> } />
       </Routes>
       </div>
     </BrowserRouter>
