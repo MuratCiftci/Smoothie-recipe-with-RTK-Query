@@ -4,9 +4,9 @@ import { authApi } from "../auth/authApi";
 const recipeApi = authApi.injectEndpoints({
   endpoints: (build) => ({
     getAllRecipes: build.query({
-      query: (searchedTerm) => ({
+      query: (search) => ({
         url: "recipes",
-        params: { search: searchedTerm },
+        params: { search },
       }),
       providesTags: (result) =>
         result
