@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import Search from "../Search/Search";
 import styles from "./Navbar.module.scss";
+import { useDispatch } from 'react-redux';
+import {logout} from "../../app/features/auth/authSlice";
+import { useAuth } from "../../hooks/useAuth";
 export const Navbar = () => {
-  const dummyUser = false;
+  const {user} = useAuth();
+
+   const dispatch = useDispatch();
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -19,8 +24,8 @@ export const Navbar = () => {
         <div className={styles.rightNav}>
         <Link to="/recipes" className={styles.link}>Browse</Link>
         <Link to="/write" className={styles.link}>Write</Link>
-          {dummyUser ? (
-            "Profile"
+          {user ? (
+            <button onClick={() => dispatch(logout())}>Logout</button>
           ) : (
             <div className={styles.buttonGroup}>
               <Link to="/login">
