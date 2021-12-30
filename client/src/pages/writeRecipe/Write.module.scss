@@ -1,11 +1,20 @@
+
 .write {
-    margin-top: 87px;
+  margin-top: 87px;
     padding-top: 50px;
   }
   
+  .pageTitle{
+    padding-top: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
+  }
+
+
   .writeImg {
     margin-left: 150px;
-    width: 70vw;
+    width: 40vw;
     height: 250px;
     border-radius: 10px;
     object-fit: cover;
@@ -52,14 +61,46 @@
   
   .writeText {
     width: 70vw;
-    height: 100vh;
+    height: 20vh;
     font-family: inherit;
     font-size: 20px;
   }
-  
+  .ingredients{
+    margin-top: 5px;
+    width: 100%;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+  }
+  .ingredientInput{
+    border: 1px solid rgb(148, 80, 165);
+    border-radius: 5px;
+    margin-right: 5px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .ingredientButton{
+    color: white;
+    background-color: rgb(148, 80, 165);
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  .ingredientName{
+    color: rgb(148, 80, 165);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 5px;
+    border-top: 2px solid rgba(68,125,117,.1);
+    text-transform: capitalize;
+  }
   .writeSubmit {
     position: absolute;
-    top: 20px;
+    bottom: 0;
     right: 50px;
     color: white;
     background-color: teal;
