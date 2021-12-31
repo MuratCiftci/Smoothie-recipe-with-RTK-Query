@@ -1,5 +1,5 @@
 .container {
-  margin-top: 10rem;
+  margin-top: 7rem;
 }
 .wrapper {
   margin: 0 4rem;
@@ -24,16 +24,21 @@
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   border-radius: 25%;
+  max-height: 60vh;
 }
-
+.details{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 .ingredientContainer {
   margin: 0 auto;
   border: 2px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
-  margin-bottom: 48px;
   padding: 24px;
   display: flex;
   flex-direction: column;
+  min-width: 200px;
 }
 .ingTitle {
   align-items: center;
@@ -41,6 +46,8 @@
   flex-direction: column;
   justify-content: center;
   margin-bottom: 16px;
+  color: rgb(148, 80, 165);
+  font-weight: 600;
 }
 .ingredientsList {
   display: block;
@@ -48,11 +55,23 @@
 .ingredient {
   list-style: circle;
   margin-bottom: 1rem;
+  text-transform: capitalize;
+  color: #333;
+  font-size: 15px;
+  font-weight: 600;
 }
-
+.descTitle{
+  color: #000;
+  font-weight: 600;
+  line-height: 2rem;
+  font-size: 24px;
+}
 .description{
     color: #333;
-    margin-top: 3rem;
+    margin-top: 1rem;
     width: 100%;
     text-align: center;
+    line-height: 1.6875rem;
+    letter-spacing: normal;
+    font-weight: 500;
 }
