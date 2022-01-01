@@ -1,12 +1,14 @@
 import styles from "./Write.module.scss";
-import { useReducer, useState } from "react";
+import { useReducer, useState} from "react";
 import { useAuth } from "../../hooks/useAuth";
 import axios from "axios";
 import { useAddRecipeMutation } from "../../app/features/recipe/recipeApi";
 import { AiFillPlusCircle,AiOutlineDelete } from "react-icons/ai";
 import ErrorMessage from "../../components/Error";
 import reducer from "../../hooks/useRecipeReducer";
+import { useNavigate } from "react-router";
 export default function Write() {
+  let navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [file, setFile] = useState(null);
@@ -47,7 +49,7 @@ export default function Write() {
     }
     try {
       const res = await recipe(newRecipe).unwrap();
-      window.location.replace("/recipe/" + res.data._id);
+      navigate(`/recipe/${res._id}`)
     } catch (err) {
       console.log(err);
     }
