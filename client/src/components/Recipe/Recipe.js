@@ -1,28 +1,35 @@
 import React from "react";
 import styles from "./Recipe.module.scss";
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import { BiUser } from "react-icons/bi";
 import { Link } from "react-router-dom";
-const Recipe = () => {
+const Recipe = ({ recipe }) => {
+  const PF = "http://localhost:8000/images/";
   return (
-    <Link to="/details" className={styles.recipeLink}>
+    <Link to={`/recipe/${recipe._id}`} className={styles.recipeLink}>
       <div className={styles.recipeWrapper}>
-        <img
-          alt="recipe"
-          src={"./smt.png"}
-          className={styles.recipeImage}
-        ></img>
+
+          <img
+            alt="recipe"
+            src={PF + recipe.photo}
+            className={styles.recipeImage}
+          ></img>
+ 
         <div className={styles.postDetail}>
           <p className={styles.postUser}>
-            <PersonOutlineOutlinedIcon />{" "}
-            <span style={{ color: "red" }}>Murat Ciftci</span>
+            <BiUser />{" "}
+            <Link
+              to={`/recipes/${recipe.username}`}
+              className={styles.username}
+            >
+              {recipe.username}
+            </Link>
           </p>
-          <p className={styles.postDate}>Poster * hours ago</p>
+          <p className={styles.postDate}>
+            {new Date(recipe.createdAt).toDateString()}
+          </p>
         </div>
         <div className={styles.postText}>
-          <p>
-            Get your morning started with this quick and easy to make green
-            breakfast smoothie.
-          </p>
+          <p className={styles.recipeTitle}>{recipe.title}</p>
         </div>
       </div>{" "}
     </Link>

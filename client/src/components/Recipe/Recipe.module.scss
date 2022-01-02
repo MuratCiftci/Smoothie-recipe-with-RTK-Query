@@ -30,8 +30,12 @@
         display: inline-flex;
         align-items: center;
         font-weight: 600;
+        text-transform: capitalize;
     }
-
+    .username{
+        margin-left: 5px;
+        color: rgb(100, 42, 114);
+    }
     .postDate{
         color: #838080;
     }
@@ -43,7 +47,9 @@
     text-align: center;
     margin:1rem;
     p{
-        font-size: 14px;
-      
+        font-size: 16px;
+        color: teal;
+        font-weight: 600;
+        text-transform: capitalize;
     }
 }
