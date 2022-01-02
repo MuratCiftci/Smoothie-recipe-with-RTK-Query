@@ -24,16 +24,21 @@ const recipeApi = authApi.injectEndpoints({
     }),
 
     updateRecipe: build.mutation({
-      query(data) {
-        const { _id, ...body } = data;
-        return {
-          url: `recipe/${_id}`,
-          method: "PUT",
-          body,
-        };
-      },
+      query: ({ _id, ...patch }) => ({
+        url: `recipe/${_id}`,
+        method: "PUT",
+        body: patch,
+      }),
+
       // Invalidates all queries that subscribe to this Recipe `id` only.
       // In this case, `getRecipe` will be re-run.
+      invalidatesTags: (result, error, { _id }) => [{ type: "Recipes", _id }],
+    }),
+    deleteRecipe: build.mutation({
+      query: (_id) => ({
+        url: `recipe/${_id}`,
+        method: "DELETE",
+      }),
       invalidatesTags: (result, error, { _id }) => [{ type: "Recipes", _id }],
     }),
 
@@ -60,4 +65,5 @@ export const {
   useUpdateRecipeMutation,
   useAddRecipeMutation,
   useGetUserRecipesQuery,
+  useDeleteRecipeMutation,
 } = recipeApi;

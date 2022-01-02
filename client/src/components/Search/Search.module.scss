@@ -1,4 +1,4 @@
-$border-color: #fe4a51;
+$border-color: #e4c3c4;
 $white: #fff;
 $grey: #333;
 
@@ -7,24 +7,29 @@ $grey: #333;
     align-items: center;
     margin-left: 16px;
     margin-right: 16px;
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    &:focus-within {
+      border: 2px solid $border-color;
+      box-shadow: 0 1px 10px 0 rgb(0 0 0 / 10%), 0 3px 10px 0 rgb(0 0 0 / 10%);
+      outline: 0;
+    }
 }
 .searchInput {
-  border: 0.5px solid $border-color;
+
   width: 100%;
   font-size: 14px;
   color: $grey;
-  border-radius: 5px;
+ 
   padding: 10px 40px 10px 15px;
   box-sizing: border-box;
   outline: none;
   transition: all ease 0.3s;
+  position: relative;
 
-  &:focus-within {
-    border: 2px solid $border-color;
-    box-shadow: 0 1px 10px 0 rgb(0 0 0 / 10%), 0 3px 10px 0 rgb(0 0 0 / 10%);
-    outline: 0;
-  }
+ 
 }
+
 .SearchIcon {
     bottom: calc(50% - 9px);
     width: 18px;

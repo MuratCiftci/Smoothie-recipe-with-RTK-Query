@@ -69,12 +69,18 @@ exports.loadRecipe = async (req, res) => {
 };
 
 exports.loadAllRecipes = async (req, res) => {
-  const search = req.query.search;
+  const searchedTerm = req.query.search;
 
   try {
     let recipes;
-    if (search) {
-      recipes = await Recipe.find();
+    if (searchedTerm) {
+      recipes = await Recipe.find({
+        $or: [
+          { title: { $regex: searchedTerm, $options: "$i" } },
+          { ingredients: { $in: [RegExp(searchedTerm, "i")] } },
+        ],
+      });
+      res.status(200).json(recipes);
     } else {
       recipes = await Recipe.find();
       res.status(200).json(recipes);
