@@ -5,7 +5,7 @@ import {useGetRecipeQuery} from '../../app/features/recipe/recipeApi'
 const RecipeDetailPage = () => {
   const { id } = useParams();
   const {data: recipe, isLoading} = useGetRecipeQuery(id);
-
+  if (!recipe) return <div>Missing recipe!</div>
     return (
         <div>
             <SingleRecipeDetail  isLoading={isLoading} recipe={recipe} />
