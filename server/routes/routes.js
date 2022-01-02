@@ -3,6 +3,7 @@ const { user } = require("../controllers/users");
 const {
   createRecipe,
   updateRecipe,
+  deleteRecipe,
   loadRecipe,
   loadAllRecipes,
   loadByUser,
@@ -23,5 +24,6 @@ router.post("/recipe", verify,  createRecipe);
 router.put("/recipe/:id", verify, updateRecipe);
 router.get("/recipe/:id", loadRecipe);
 router.get("/recipes/:user", loadByUser);
+router.delete("/recipe/:id", verify, deleteRecipe);
 
 module.exports = router;
