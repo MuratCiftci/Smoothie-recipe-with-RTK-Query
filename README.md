@@ -1,3 +1,27 @@
+## CRUD Recipe App with Redux Toolkit Query
+I've developed Fullstack CRUD project using React, Express.js, Redux Toolkit, Redux Toolkit Query and MongoDB .
+
+User can register, login. Search, update, delete and add recipes.
+
+I've used JSON Web Token for security.
+
+I've used Redux Toolkit for global state management and RTK Query for data fetching and caching.
+
+## Why should we use RTK Query for data fetching.
+RTK Query is a powerful data fetching and caching tool. It is designed to simplify common cases for loading data in a web application, eliminating the need to hand-write data fetching & caching logic yourself.
+
+-RTK Query is UI-agnostic. It can be integrated with any framework capable of using Redux
+
+-Avoids duplicate requests for the same data
+
+-Managing cache lifetimes as the user interacts with the UI
+
+
+You can check offical documentation for more information.
+
+https://redux-toolkit.js.org/rtk-query/usage/queries
+
+RTK Query is an optional addon included in the Redux Toolkit package, and its functionality is built on top of the other APIs in Redux Toolkit.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
