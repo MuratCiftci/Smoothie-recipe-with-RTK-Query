@@ -2,6 +2,7 @@
 .write {
   margin-top: 87px;
     padding-top: 50px;
+   
   }
   
   .pageTitle{
@@ -22,12 +23,19 @@
   
   .writeForm {
     position: relative;
+    @media  screen and(max-width:599px) {
+      position: unset;
+      margin-left: 1rem;
+    }
   }
   
   .writeFormGroup {
     margin-left: 150px;
     display: flex;
     align-items: center;
+    @media screen and(max-width:599px) {
+      margin-left: 0;
+    }
   }
   
   .writeIcon {
@@ -111,4 +119,9 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+    @media  screen and(max-width:599px) {
+      bottom: -50px;
+      left: 40%;
+      margin-bottom: 1rem;
+    }
   }

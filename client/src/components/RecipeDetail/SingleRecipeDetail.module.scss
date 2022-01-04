@@ -16,6 +16,13 @@
   letter-spacing: 0;
   display: inline-flex;
   align-items: center;
+  @media screen and(max-width:599px) {
+    font-size: 24px;
+    line-height: 24px;
+    width: 100%;
+    text-align: center;
+    display: unset;
+  }
 }
 .titleInput{
   box-sizing: border-box;
@@ -31,25 +38,43 @@
   display: inline-flex;
   align-items: flex-end;
   margin-left: 1rem;
+  @media screen and(max-width:599px) {
+    margin-left: 0;
+  }
  
 }
 .editIcon{
   width: 32px;
   height: 32px;
-
+  @media screen  and(max-width:599px) {
+    width: 24px;
+    height: 24px;
+  }
 }
 .deleteIcon{
   width: 32px;
   height: 32px;
+  @media screen  and(max-width:599px) {
+    width: 24px;
+    height: 24px;
+  }
 }
 .cancelButton{
   width: 32px;
   height: 32px;
   cursor: pointer;
+  @media screen  and(max-width:599px) {
+    width: 24px;
+    height: 24px;
+  }
 }
 .content {
   display: inline-flex;
   justify-content: space-between;
+  @media  screen  and(max-width:599px){
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .recipeImage {
   width: 450px;
@@ -57,6 +82,12 @@
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   border-radius: 25%;
   max-height: 60vh;
+  @media  screen  and(max-width:599px){
+    width: 75%;
+    margin-bottom: 3rem;
+    max-height: 30vh;
+  }
+
 }
 .details{
   display: flex;

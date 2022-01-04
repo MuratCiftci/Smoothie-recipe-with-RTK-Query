@@ -20,6 +20,10 @@
   flex-direction: column;
   max-width: 882px;
   width: 40%;
+  @media screen and(max-width:599px) {
+    width: 60%;
+    margin-right: 1rem;
+  }
 }
 .name{
   font-weight: 600;

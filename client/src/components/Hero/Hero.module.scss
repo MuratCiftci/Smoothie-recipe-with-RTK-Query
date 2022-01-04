@@ -6,11 +6,11 @@ $background-color: linear-gradient(
   rgba(227, 237, 238, 1) 36%,
   rgba(255, 255, 255, 1) 51%
 );
+$text-color: #333333;
 
 @mixin Button(
   $button-color: darken($color: $light-blue, $amount: 30%),
-  $color: lighten($color: $light-blue, $amount: 60%),
-
+  $color: lighten($color: $light-blue, $amount: 60%)
 ) {
   background: $button-color;
   border: none;
@@ -21,7 +21,7 @@ $background-color: linear-gradient(
   font-weight: 600;
   font-family: "Lato", sans-serif;
   margin-bottom: 1rem;
-  padding:0 1rem;
+  padding: 0 1rem;
   &:hover {
     background: darken($color: $light-blue, $amount: 60%);
     color: lighten($color: $light-blue, $amount: 80%);
@@ -31,16 +31,27 @@ $background-color: linear-gradient(
 .heroContainer {
   height: calc(100vh - 87px);
   color: white;
-  display: flex;
   position: relative;
   justify-content: space-between;
   align-items: center;
   background: $background-color;
+  @media screen and(max-width:1000px) {
+    background: white;
+  }
 }
 .heroImage {
   position: absolute;
   left: 0;
   bottom: 0;
+  @media screen and(max-width: 425px) {
+    width: 100%;
+  }
+  @media screen and(min-width: 425px) and(max-width:599px){
+    width: 80%;
+  }
+  @media screen and(min-width:600px) and(max-width: 1000px) {
+    width: 50%;
+  }
 }
 .heroDetails {
   position: absolute;
@@ -49,30 +60,58 @@ $background-color: linear-gradient(
   flex-direction: column;
   margin: 5rem;
   justify-content: center;
+  @media screen and(max-width:325px){
+    margin: 4rem;
+  }
+  @media screen and(min-width:326px){
+    margin: 4rem;
+  }
+  @media screen and(min-width:446px) and (max-width:600px){
+    margin: 4rem auto;
+    width: 100%;
+   
+  }
 }
 .heroTitle {
   font-size: 45px;
   width: 300px;
   text-align: center;
-  color: rgb(20, 18, 18);
+  color: $text-color;
   margin-bottom: 2rem;
+  font-family: "Proza Libre", sans-serif;
+  @media screen and(max-width:325px) {
+    width: 100%;
+    font-size: 22px;
+    margin-bottom: 0.5rem;
+  }
+  @media screen and(min-width:325px) and (max-width:599px) {
+    width: 100%;
+    font-size: 22px;
+    margin-bottom: 0.5rem;
+  }
 }
-.heroLink{
+.heroLink {
   width: 100%;
-  text-align: center
+  text-align: center;
 }
 .heroButton {
   @include Button;
+  @media screen and(max-width:568px) {
+    font-size: 11px;
+  }
 }
 
-.widerButton{
+.widerButton {
   @include Button($button-color: $light-red);
 
   &:hover {
     background: darken($color: $light-red, $amount: 20%);
     color: lighten($color: $light-blue, $amount: 80%);
   }
-  
+
+  @media screen and(max-width:568px) {
+    font-size: 11px;
+  }
 }
 
 .lastRecipe {
