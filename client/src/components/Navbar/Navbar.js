@@ -1,13 +1,25 @@
 import { Link } from "react-router-dom";
 import Search from "../Search/Search";
 import styles from "./Navbar.module.scss";
-import { useDispatch } from 'react-redux';
-import {logout} from "../../app/features/auth/authSlice";
-import { useAuth } from "../../hooks/useAuth";
+import { AiOutlineMenu } from "react-icons/ai";
+import { useState } from "react";
+import MenuLinks from "./MenuLinks";
 export const Navbar = () => {
-  const {user} = useAuth();
 
-   const dispatch = useDispatch();
+
+
+  const [sideBar, setsideBar] = useState(false);
+  const [menuPosition, setMenuPosition] = useState("-50%");
+
+  function toggleShowMenu() {
+    // open or close
+    setsideBar(!sideBar);
+    if (sideBar) {
+      setMenuPosition("-50%");
+    } else {
+      setMenuPosition("0");
+    }
+  }
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -22,21 +34,19 @@ export const Navbar = () => {
           </div>
         </div>
         <div className={styles.rightNav}>
-        <Link to="/recipes" className={styles.link}>Browse</Link>
-        <Link to="/write" className={styles.link}>Write</Link>
-          {user ? (
-            <button onClick={() => dispatch(logout())}>Logout</button>
-          ) : (
-            <div className={styles.buttonGroup}>
-              <Link to="/login">
-                <button className={styles.login}>Login</button>
-              </Link>
-              <Link to="/register">
-                <button className={styles.sign}>Sign Up</button>
-              </Link>
-            </div>
-          )}
-          <div className={styles.theme}>*</div>
+          <div className={styles.menu}>
+            <MenuLinks />
+          </div>
+          <button
+            onClick={() => toggleShowMenu()}
+            className={styles.hamburgerMenu}
+          >
+            <AiOutlineMenu />
+          </button>
+          <div style={{ right: menuPosition }} className={styles.sidenav}>
+            <button className={styles.closebtn} onClick={() => toggleShowMenu()}> &times;</button>
+            <MenuLinks />
+          </div>
         </div>
       </div>
     </div>
