@@ -20,16 +20,16 @@ const MenuLinks = () => {
       {user ? (
         <button className={styles.link} onClick={() => dispatch(logout())}>Logout</button>
       ) : (
-        <div className={styles.buttonGroup}>
-          <Link to="/login">
-            <button className={styles.login}>Login</button>
+        <>
+          <Link to="/login"  className={styles.link}>
+            Login
           </Link>
-          <Link to="/register">
-            <button className={styles.sign}>Sign Up</button>
+          <Link to="/register"  className={styles.link}>
+            Sign Up
           </Link>
-        </div>
+        </>
       )}
-      <div className={styles.theme}>*</div>
+      
     </div>
   );
 };
